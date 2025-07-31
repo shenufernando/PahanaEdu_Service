@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Users - Admin | Pahana Edu</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="logo">📘 Pahana Edu</div>
+    <nav class="nav-links">
+      <a href="admin_dashboard.html">Dashboard</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Manage Users Section -->
+  <section class="billing-container">
+    <h2>Manage Users</h2>
+
+    <!-- Add New User -->
+    <a href="signup.html" class="btn" style="margin-bottom: 20px; display: inline-block;">➕ Add New User</a>
+
+    <!-- Users Table -->
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Full Name</th>
+          <th>Email Address</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample Users -->
+        <tr>
+          <td>U001</td>
+          <td>Admin Silva</td>
+          <td>admin@gmail.com</td>
+          <td>Admin</td>
+          
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>U002</td>
+          <td>Cashier Nuwan</td>
+          <td>cashier@gmail.com</td>
+          <td>Cashier</td>
+          <td>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-delete">Delete</button>
+          </td>
+        </tr>
+        <!-- More users can be added dynamically -->
+      </tbody>
+    </table>
+  </section>
+
+</body>
+</html>
