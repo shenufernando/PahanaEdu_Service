@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -27,6 +22,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   <section class="table-section">
     <div class="table-container">
       <h2 style="text-align:center; margin-top: 20px;">Customer Records</h2>
+      
+      
+            <!-- Search Input -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Customer records...">
+  </div>
 
       <table id="customerTable">
         <thead>
@@ -66,6 +67,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
       </table>
     </div>
   </section>
+  
+  <script src="../js/script.js"></script>
 
 </body>
 </html>

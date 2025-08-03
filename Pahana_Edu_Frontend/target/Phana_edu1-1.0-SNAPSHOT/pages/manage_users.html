@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Manage Users - Admin | Pahana Edu</title>
   <link rel="stylesheet" href="../css/style.css" />
+  
 </head>
 <body>
 
@@ -25,11 +22,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   <section class="billing-container">
     <h2>Manage Users</h2>
 
-    <!-- Add New User -->
     <a href="signup.html" class="btn" style="margin-bottom: 20px; display: inline-block;">➕ Add New User</a>
 
-    <!-- Users Table -->
-    <table class="styled-table">
+    <table class="styled-table" id="userTable">
       <thead>
         <tr>
           <th>User ID</th>
@@ -40,13 +35,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </tr>
       </thead>
       <tbody>
-        <!-- Sample Users -->
         <tr>
           <td>U001</td>
           <td>Admin Silva</td>
           <td>admin@gmail.com</td>
           <td>Admin</td>
-          
           <td>
             <button class="btn-edit">Edit</button>
             <button class="btn-delete">Delete</button>
@@ -62,10 +55,56 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <button class="btn-delete">Delete</button>
           </td>
         </tr>
-        <!-- More users can be added dynamically -->
       </tbody>
     </table>
   </section>
+
+  <!-- Edit Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup">
+      <h3>Edit User</h3>
+      <input type="text" id="editName" placeholder="Full Name">
+      <input type="email" id="editEmail" placeholder="Email Address">
+      <button onclick="saveEdit()">Save</button>
+      <button onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const table = document.getElementById("userTable");
+    let currentRow = null;
+
+    table.addEventListener("click", function (e) {
+      if (e.target.classList.contains("btn-delete")) {
+        if (confirm("Are you sure you want to delete this user?")) {
+          e.target.closest("tr").remove();
+        }
+      }
+
+      if (e.target.classList.contains("btn-edit")) {
+        currentRow = e.target.closest("tr");
+        const name = currentRow.cells[1].textContent;
+        const email = currentRow.cells[2].textContent;
+        document.getElementById("editName").value = name;
+        document.getElementById("editEmail").value = email;
+        document.getElementById("popupOverlay").style.display = "flex";
+      }
+    });
+
+    function closePopup() {
+      document.getElementById("popupOverlay").style.display = "none";
+    }
+
+    function saveEdit() {
+      const newName = document.getElementById("editName").value;
+      const newEmail = document.getElementById("editEmail").value;
+      if (currentRow) {
+        currentRow.cells[1].textContent = newName;
+        currentRow.cells[2].textContent = newEmail;
+      }
+      closePopup();
+    }
+  </script>
 
 </body>
 </html>

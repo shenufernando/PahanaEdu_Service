@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -27,6 +22,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   <!-- Page Content -->
   <div class="container">
     <h2>All Billing Records</h2>
+    
+       <!-- Search Input -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search for Billis...">
+  </div>
 
     <table>
       <thead>

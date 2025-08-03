@@ -1,7 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
 
 /*billing*/
 // Get all elements
@@ -20,6 +16,33 @@ const cvv = document.getElementById('cvv');
 
 let billItems = [];
 let totalAmount = 0;
+
+
+
+
+// 🔸 Track total units (books) added
+let unitsConsumed = 0;
+
+document.getElementById("addItemBtn").addEventListener("click", () => {
+  const qty = parseInt(document.getElementById("qtyInput").value || 0);
+  if (!isNaN(qty) && qty > 0) {
+    unitsConsumed += qty;
+    document.getElementById("unitsConsumed").textContent = unitsConsumed;
+  }
+
+  // Optional: Update billOutput as well (if needed)
+  const output = document.getElementById("billOutput");
+  output.textContent += `\nUnits Added: ${qty}`;
+});
+
+
+
+// Example:
+document.getElementById("billOutput").textContent += `\nTotal Units Consumed: ${unitsConsumed}`;
+
+
+
+
 
 // Show or hide card fields based on selected method
 paymentMethod.addEventListener("change", () => {
@@ -140,4 +163,45 @@ printBillBtn.addEventListener('click', () => {
   newWindow.print();
   newWindow.close();
 });
+
+
+
+  // Load customers into dropdown
+  window.onload = function () {
+    const customerSelect = document.getElementById("customerSelect");
+    const customers = JSON.parse(localStorage.getItem("customers")) || [];
+
+    customers.forEach((c, i) => {
+      const option = document.createElement("option");
+      option.value = i;
+      option.textContent = `${c.name} (${c.accountNo})`;
+      customerSelect.appendChild(option);
+    });
+  };
+
+  function addBill() {
+    const index = document.getElementById("customerSelect").value;
+    const units = parseInt(document.getElementById("unitsInput").value);
+    let customers = JSON.parse(localStorage.getItem("customers")) || [];
+
+    if (index !== "" && !isNaN(units)) {
+      customers[index].units += units;
+      localStorage.setItem("customers", JSON.stringify(customers));
+      alert("Billing completed!");
+
+      window.location.href = "view_customers.html";
+    } else {
+      alert("Please select a customer and enter valid units.");
+    }
+  }
+
+
+
+
+
+
+
+
+
+
 

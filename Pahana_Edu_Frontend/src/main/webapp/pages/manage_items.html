@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-
-<!-- admin_manage_books.html -->
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -31,6 +24,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
       <form action="AddItemServlet" method="post" enctype="multipart/form-data">
         <input type="text" name="itemCode" placeholder="Book Code" required />
         <input type="text" name="itemName" placeholder="Book Title" required />
+        <input type="text" name="itemName" placeholder="Book Category" required />
         <input type="number" name="price" placeholder="Price (Rs.)" required />
         <input type="number" name="quantity" placeholder="Available Quantity" required />
         <label for="bookImage">Upload Book Image</label>
@@ -44,12 +38,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
   <section class="table-section">
     <div class="table-container">
       <h2>Available Books</h2>
+      
+      <!-- 🔍 Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="categorySearch" placeholder="Search by category (e.g. Fiction, Short Story)" onkeyup="filterBooks()" />
+    </div>
+
       <table class="styled-table">
         <thead>
           <tr>
             <th>Image</th>
             <th>Code</th>
             <th>Title</th>
+            <th>Category</th>
             <th>Price (Rs.)</th>
             <th>Quantity</th> 
             <th>Actions</th>
@@ -61,10 +62,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <td><img src="../images/B1.jfif" alt="Book 1" width="50" height="70" /></td>
             <td>B101</td>
             <td>The Hidden Island</td>
+            <td>Fiction</td>
             <td>1200</td>
             <td>10</td>
             <td>
-              <a href="EditBookServlet?code=B101" class="btn-edit">Edit</a>
+         
+              <a href="edit_items.html?code=B101" class="edit-link">Edit</a>
+              
               <a href="DeleteBookServlet?code=B101" class="btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
           </tr>
@@ -72,6 +76,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
       </table>
     </div>
   </section>
+  
+  <!-- JavaScript Logic -->
+  <script src="../js/script.js"></script>
+
 
 </body>
 </html>
