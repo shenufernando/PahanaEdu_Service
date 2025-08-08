@@ -1,59 +1,61 @@
 package cashier.customer;
 
 public class cashier_customer {
-    private String accountNo;
-    private String name;
+    private int accountNo;
+    private String customerName;
     private String address;
     private String phone;
-    
-    // Constructor
-    public cashier_customer(String accountNo, String name, String address, String phone, int units) {
+    private int unitsConsumed;
+
+    // Constructors
+    public cashier_customer() {}
+
+    public cashier_customer(int accountNo, String customerName, String address, String phone, int unitsConsumed) {
         this.accountNo = accountNo;
-        this.name = name;
+        this.customerName = customerName;
         this.address = address;
         this.phone = phone;
-        
+        this.unitsConsumed = unitsConsumed;
     }
 
-    cashier_customer(String string, String string0, String string1, String string2) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    // Getters
-    public String getAccountNo() {
+    // Getters and Setters
+    public int getAccountNo() {
         return accountNo;
     }
 
-    public String getName() {
-        return name;
+    public void setAccountNo(int accountNo) {
+        this.accountNo = accountNo;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    
-
-    // Setters (optional, if you need to update fields later)
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    
+    public int getUnitsConsumed() {
+        return unitsConsumed;
+    }
+
+    public void setUnitsConsumed(int unitsConsumed) {
+        this.unitsConsumed = unitsConsumed;
+    }
 }

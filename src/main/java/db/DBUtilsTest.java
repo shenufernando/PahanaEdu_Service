@@ -19,7 +19,7 @@ import java.sql.DriverManager;
 public class DBUtilsTest {
 
     // Database connection details
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/pahana_edu?useSSL=false&serverTimezone=UTC";
+    private static final String DB_URL = "jdbc:mysql://localhost:3307/pahana_edu?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root"; // change if your username is different
     private static final String PASS = "1234";     // add your MySQL password if set
 

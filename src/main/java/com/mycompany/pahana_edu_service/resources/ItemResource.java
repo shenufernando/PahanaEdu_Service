@@ -12,7 +12,7 @@ package com.mycompany.pahana_edu_service.resources;
 
 
 import admin.items.Item;
-import admin.items.itemOperation;
+import admin.items.itemOperation; 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import java.util.List;
@@ -34,7 +34,7 @@ public class ItemResource {
     @Path("/{code}")
     @Produces(MediaType.APPLICATION_JSON)
     public Item getItemByCode(@PathParam("code") String code) {
-        return op.getItemByCode(code);
+        return op.getitemByCode(code);
     }
 
     // ✅ POST new item

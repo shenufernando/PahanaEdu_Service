@@ -12,58 +12,58 @@ package admin.customer;
 
 
 public class Customer {
-
     private int accountNo;
-    private String name;
+    private String customerName;
     private String address;
     private String phone;
     private int unitsConsumed;
 
-    // Constructor
-    public Customer(int accountNo, String name, String address, String phone, int unitsConsumed) {
+    // Constructors
+    public Customer() {}
+
+    public Customer(int accountNo, String customerName, String address, String phone, int unitsConsumed) {
         this.accountNo = accountNo;
-        this.name = name;
+        this.customerName = customerName;
         this.address = address;
         this.phone = phone;
         this.unitsConsumed = unitsConsumed;
     }
 
-    // Getters
+    // Getters and Setters
     public int getAccountNo() {
         return accountNo;
     }
 
-    public String getName() {
-        return name;
+    public void setAccountNo(int accountNo) {
+        this.accountNo = accountNo;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public int getUnitsConsumed() {
-        return unitsConsumed;
-    }
-
-    // Setters (optional, if you plan to update fields later)
-    public void setAccountNo(int accountNo) {
-        this.accountNo = accountNo;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setAddress(String address) {
         this.address = address;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public int getUnitsConsumed() {
+        return unitsConsumed;
     }
 
     public void setUnitsConsumed(int unitsConsumed) {
